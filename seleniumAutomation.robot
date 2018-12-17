@@ -9,12 +9,12 @@ ${scheme}       http
 ${testUrl}      ${scheme}://${homepage}
 #${prodUrl}      ${prodScheme}://$
 *** Keywords ***
-Open homepage
+Open Homepage
     Open Browser    ${testUrl}      ${browser}
 
 *** Test Cases ***
 CP001 Click on the Containers
-    Open homepage
+    Open Homepage
     Set Global Variable     @{nameContainers}   //*[@id="homefeatured"]/li[1]/div/div[2]/h5/a   //*[@id="homefeatured"]/li[2]/div/div[2]/h5/a   //*[@id="homefeatured"]/li[3]/div/div[2]/h5/a   //*[@id="homefeatured"]/li[4]/div/div[2]/h5/a       //*[@id="homefeatured"]/li[5]/div/div[2]/h5/a       //*[@id="homefeatured"]/li[6]/div/div[2]/h5/a       //*[@id="homefeatured"]/li[7]/div/div[2]/h5/a
     :FOR    ${nameContainer}    IN      @{nameContainers}
 ##   \       Run Keyword If      '${nameContainer}'=='//*[@id="homefeatured"]/li[8]/div/div[2]/h5/a'     Exit For Loop
@@ -23,6 +23,8 @@ CP001 Click on the Containers
     \       Click Element   xpath=//*[@id="header_logo"]/a/img
     close Browser
 
+CP002 New Test Case
+    Open Homepage
 
 
 
